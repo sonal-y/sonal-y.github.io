@@ -12,6 +12,55 @@
     color: #fff;
   }
 </style>
+<script>
+  var digitalData = {
+      "page": {
+          "pageInfo" : {
+              "pageName": "Home"
+              }
+          }
+  };
+  </script>
+  <!--/Data Layer-->
+  <!--jQuery or other helper libraries-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+   <!--/jQuery-->
+   <script>
+    //prehiding snippet for Adobe Target with asynchronous tags deployment
+    ;(function(win, doc, style, timeout) {
+    var STYLE_ID = 'at-body-style';
+    function getParent() {
+       return doc.getElementsByTagName('head')[0];
+    }
+    function addStyle(parent, id, def) {
+       if (!parent) {
+       return;
+       }
+       var style = doc.createElement('style');
+       style.id = id;
+       style.innerHTML = def;
+       parent.appendChild(style);
+    }
+    function removeStyle(parent, id) {
+       if (!parent) {
+       return;
+       }
+       var style = doc.getElementById(id);
+       if (!style) {
+       return;
+       }
+       parent.removeChild(style);
+    }
+    addStyle(getParent(), STYLE_ID, style);
+    setTimeout(function() {
+       removeStyle(getParent(), STYLE_ID);
+    }, timeout);
+    }(window, document, "body {opacity: 0 !important}", 3000));
+ </script>
+ 
+<!--Launch Header Embed Code: REPLACE THE NEXT LINE WITH THE EMBED CODE FROM YOUR OWN DEVELOPMENT ENVIRONMENT-->
+<script src="https://assets.adobedtm.com/6268dc4b6b26/dd791c6dd083/launch-386cd9e6da8d-development.min.js" async></script>
+<!--/Launch Header Embed Code-->
 </head>
 <body id="myPage">
 
