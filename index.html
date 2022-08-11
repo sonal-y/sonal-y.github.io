@@ -20,7 +20,8 @@
               }
           },
       "user" : {
-         "membertype":"Gold"
+         "membertype":"Gold",
+         "loggedIn": localStorage['loginstatus'] || 'loggedout'
       }
   };
   </script>
@@ -70,6 +71,28 @@
 <!--Launch Header Embed Code: REPLACE THE NEXT LINE WITH THE EMBED CODE FROM YOUR OWN DEVELOPMENT ENVIRONMENT-->
 <script src="https://assets.adobedtm.com/6268dc4b6b26/dd791c6dd083/launch-386cd9e6da8d-development.min.js" async></script>
 <!--/Launch Header Embed Code-->
+<script>
+  $(document).ready(function(){
+    var loginstatus = localStorage['loginstatus'] || 'loggedout';
+    if(loginstatus == "loggedin"){
+      $('#login').hide();
+      $("#logout").show();
+    }else{
+      $('#logout').hide();
+      $("#login").show();
+    }
+  });
+  function updateLoginStatus(status){
+    localStorage['loginstatus'] = status;
+    if(status == "loggedin"){
+      $('#login').hide();
+      $("#logout").show();
+    } else{
+      $('#logout').hide();
+      $("#login").show();
+    }
+  }
+</script>
 </head>
 <body id="myPage">
 
@@ -119,6 +142,8 @@
 <div class="w3-display-container w3-animate-opacity">
   <div style="width:100%;min-height:350px;max-height:600px;background-color: teal;"></div>
   <div class="w3-container w3-display-bottomleft w3-margin-bottom">  
+    <button onclick="updateLoginStatus('loggedin')" id="login" class="w3-button w3-xlarge w3-theme w3-hover-teal" title="Login">Login</button>
+    <button onclick="updateLoginStatus('loggedout')" id="logout" class="w3-button w3-xlarge w3-theme w3-hover-teal" title="Logout">Logout</button>
     <h1>Welcome to demo website</h1>
     <button onclick="window.location.href='pageB.html'" class="w3-button w3-xlarge w3-theme w3-hover-teal" title="Go To W3.CSS">Learn more</button>
   </div>
